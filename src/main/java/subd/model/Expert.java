@@ -8,4 +8,7 @@ public class Expert {
     private String fio;
     @ManyToOne
     private Event_program event_program;
+    public void Constructor(Integer id, String fio){
+        this.fio = fio;
+    }
 }
