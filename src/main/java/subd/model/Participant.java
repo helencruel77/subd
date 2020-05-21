@@ -7,5 +7,6 @@ public class Participant {
     private Integer id;
     private String fio;
     private String email;
-    //session id
+    @ManyToOne
+    private Session session;
 }

@@ -6,5 +6,6 @@ public class Expert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String fio;
-    //event id
+    @ManyToOne
+    private Event_program event_program;
 }
