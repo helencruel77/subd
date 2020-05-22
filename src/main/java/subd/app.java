@@ -41,7 +41,7 @@ public class app {
 
     @EventListener(ApplicationReadyEvent.class)
     public void onStart() {
-
+        createExpert(1, "RTT");
         }
     private void createExpert(Integer id, String fio){
         Expert expert = new Expert();
@@ -49,9 +49,4 @@ public class app {
         expertRepository.save(expert);
     }
 
-    private  void readExperts() {
-        expertRepository.findAll(PageRequest.of(0, 3, Sort.Direction.DESC, "fio"))
-                .toList()
-                .forEach(System.out::println);
-    }
 }

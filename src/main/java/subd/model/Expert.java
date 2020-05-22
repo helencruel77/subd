@@ -11,4 +11,12 @@ public class Expert {
     public void Constructor(Integer id, String fio){
         this.fio = fio;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", name='" + fio +
+                '}';
+    }
 }
