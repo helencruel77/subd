@@ -16,4 +16,16 @@ public class Event_program {
     private Session session;
     @OneToMany
     private List<Expert> experts;
+
+    public void Constructor(Integer id, String name){
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id = " + id  +"," + "\n" +
+                "name = " + name +
+                '}';
+    }
 }

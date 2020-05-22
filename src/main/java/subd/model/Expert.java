@@ -15,8 +15,8 @@ public class Expert {
     @Override
     public String toString() {
         return "{" +
-                "id=" + id +
-                ", name='" + fio +
+                "id = " + id  +"," + "\n" +
+                "name = " + fio +
                 '}';
     }
 }
