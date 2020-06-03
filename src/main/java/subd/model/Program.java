@@ -1,7 +1,5 @@
 package subd.model;
 import javax.persistence.*;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -12,7 +10,7 @@ public class Program {
     private String name;
     private String time;
     @OneToMany
-    private List<Event_program> event_programs;
+    private List<EventProgram> eventPrograms;
 
     public void Constructor(Integer id, String name, String time){
         this.name = name;

@@ -10,7 +10,8 @@ import java.util.List;
 
 @Repository
 public interface SessionRepository extends JpaRepository<Session, Integer> {
-    //@Query("SELECT e FROM Session e WHERE e.dateFrom <= current_date and e.dateTo >= :date " )
- //   public List<Session> getAllByDateBetween(Date date);
+    @Query("SELECT e.name, e.place, e.dataFrom FROM Session e WHERE e.dateFrom <= current_date " +
+            "and e.dateTo >= :date ORDER BY e.place, e.dataFrom" )
+    public List<Session> getAllByDateBetween(Date date);
 
 }

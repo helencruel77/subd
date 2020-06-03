@@ -5,14 +5,13 @@ public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String fio;
-
+    private String lastName;
     private String email;
     @ManyToOne
     private Session session;
 
     public void Constructor(Integer id, String fio, String email){
-        this.fio = fio;
+        this.lastName = fio;
         this.email = email;
     }
 
@@ -20,7 +19,7 @@ public class Participant {
     public String toString() {
         return "{" +
                 "id = " + id  +"," + "\n" +
-                "name = " + fio + "\n" +
+                "name = " + lastName + "\n" +
                 "email = " + email +
                 '}';
     }

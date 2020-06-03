@@ -1,23 +1,18 @@
 package subd.model;
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-public class Event_program {
+public class TypeOfLesson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @ManyToOne
-    private Program program;
-    @ManyToOne
-    private Type_of_lesson type_of_lesson;
-    @ManyToOne
-    private Session session;
     @OneToMany
-    private List<Expert> experts;
+    private List<EventProgram> eventPrograms;
 
-    public void Constructor(Integer id, String name){
+    public void Constructor(Integer id, String name, String place, Timestamp dataFrom, Timestamp dataTo){
         this.name = name;
     }
 

@@ -1,6 +1,5 @@
 package subd.model;
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class Session {
     @OneToMany
     private List<Participant> participants;
     @OneToMany
-    private List<Event_program> event_programs;
+    private List<EventProgram> eventPrograms;
 
     public void Constructor(Integer id, String name, String place, Date dataFrom, Date dataTo){
         this.name = name;
