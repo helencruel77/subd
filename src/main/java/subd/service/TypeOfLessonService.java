@@ -1,10 +1,9 @@
 package subd.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import subd.model.Program;
-import subd.model.Session;
-import subd.model.TypeOfLesson;
+import subd.model.*;
 import subd.repository.TypeOfLessonRepository;
 
 import java.util.List;
@@ -37,4 +36,10 @@ public class TypeOfLessonService {
     public List<TypeOfLesson> getAllByNameEquals(String type) {
         return typeOfLessonRepository.getAllByNameEquals(type);
     }
+
+    public PageableItems<TypeOfLesson> findAll(int offset, int count) {
+        final Page<TypeOfLesson> page = typeOfLessonRepository.findAll(new OffsetablePageRequest(offset, count));
+        return new PageableItems<>(page.getTotalElements(), page.getContent());
+    }
+
 }

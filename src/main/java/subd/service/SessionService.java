@@ -1,7 +1,10 @@
 package subd.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import subd.model.OffsetablePageRequest;
+import subd.model.PageableItems;
 import subd.model.Program;
 import subd.model.Session;
 import subd.repository.SessionRepository;
@@ -45,6 +48,11 @@ public class SessionService {
 
     public List<Session> getAllByNameEquals(String name) {
         return sessionRepository.getAllByNameEquals(name);
+    }
+
+    public PageableItems<Session> findAll(int offset, int count) {
+        final Page<Session> page = sessionRepository.findAll(new OffsetablePageRequest(offset, count));
+        return new PageableItems<>(page.getTotalElements(), page.getContent());
     }
 
 }

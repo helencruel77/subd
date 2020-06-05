@@ -1,10 +1,9 @@
 package subd.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import subd.model.EventProgram;
-import subd.model.Expert;
-import subd.model.Program;
+import subd.model.*;
 import subd.repository.EventProgramRepository;
 
 import java.util.List;
@@ -37,5 +36,11 @@ public class EventProgramService {
     public List<EventProgram> getAllByNameEquals(String name) {
         return eventProgramRepository.getAllByNameEquals(name);
     }
+
+    public PageableItems<EventProgram> findAll(int offset, int count) {
+        final Page<EventProgram> page = eventProgramRepository.findAll(new OffsetablePageRequest(offset, count));
+        return new PageableItems<>(page.getTotalElements(), page.getContent());
+    }
+
 
 }

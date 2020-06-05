@@ -1,8 +1,11 @@
 package subd.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import subd.model.Expert;
+import subd.model.OffsetablePageRequest;
+import subd.model.PageableItems;
 import subd.model.Participant;
 import subd.repository.ParticipantRepository;
 
@@ -34,5 +37,8 @@ public class ParticipantService {
     public List<Participant> getAllByNameEquals(String lastName) {
         return participantRepository.getAllByNameEquals(lastName);
     }
-
+    public PageableItems<Participant> findAll(int offset, int count) {
+        final Page<Participant> page = participantRepository.findAll(new OffsetablePageRequest(offset, count));
+        return new PageableItems<>(page.getTotalElements(), page.getContent());
+    }
 }
