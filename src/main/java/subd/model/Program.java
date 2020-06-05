@@ -21,7 +21,7 @@ public class Program {
     public String toString() {
         return "{" +
                 "id = " + id  +"," + "\n" +
-                "name = " + name +
+                "name = " + name + "\n" +
                 "time = " + time +
                 '}';
     }

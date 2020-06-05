@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import subd.repository.*;
+import subd.service.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,13 @@ public class App {
     private ProgramRepository programRepository;
     private SessionRepository sessionRepository;
     private TypeOfLessonRepository typeOfLessonRepository;
+
+    private EventProgramService eventProgramService;
+    private ExpertService expertService;
+    private ParticipantService participantService;
+    private ProgramService programService;
+    private SessionService sessionService;
+    private TypeOfLessonService typeOfLessonService;
 
     @Autowired
     public App(EventProgramRepository eventProgramRepository,
@@ -42,21 +50,22 @@ public class App {
 
     @EventListener(ApplicationReadyEvent.class)
     public void onStart() throws ParseException {
-        CRUD service = new CRUD();
 
-        service.createParticipant(1, "Razinova", "tt@gmail.com");
-        service.createParticipant(1, "Matchina", "trrt@gmail.com");
+        participantService.createParticipant(1, "Razinova", "tt@gmail.com");
+        participantService.createParticipant(1, "Matchina", "trrt@gmail.com");
+        participantService.readParticipants();
+
         System.out.println((participantRepository.findEmails()));
 
-        service.createProgram(1, "bigboom", "2020-05-03 10:00");
+        programService.createProgram(1, "bigboom", "2020-05-03 10:00");
         System.out.println(programRepository.findPrograms());
 
-        service.createProgram(1, "bigboom", "2020-05-03 10:00");
+        programService.createProgram(1, "bigboom", "2020-05-03 10:00");
         System.out.println(programRepository.getAllByNameEquals("bigboom"));
 
-        service.createSession(1, "Stachka", "Samara", "31-08-2010 10:00:00",
+        sessionService.createSession(1, "Stachka", "Samara", "31-08-2010 10:00:00",
                 "10-09-2020 18:00:00");
-        service.readSessions();
+        sessionService.readSessions();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         String Date = "01-09-2010 10:00:00";
