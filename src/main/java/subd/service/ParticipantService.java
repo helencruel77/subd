@@ -6,6 +6,8 @@ import subd.model.Expert;
 import subd.model.Participant;
 import subd.repository.ParticipantRepository;
 
+import java.util.List;
+
 public class ParticipantService {
     private ParticipantRepository participantRepository;
     public void readParticipants() {
@@ -28,4 +30,9 @@ public class ParticipantService {
         participant.Constructor(id, lastName, email);
         participantRepository.save(participant);
     }
+
+    public List<Participant> getAllByNameEquals(String lastName) {
+        return participantRepository.getAllByNameEquals(lastName);
+    }
+
 }

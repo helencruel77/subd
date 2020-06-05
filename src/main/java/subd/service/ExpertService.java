@@ -6,6 +6,8 @@ import subd.model.EventProgram;
 import subd.model.Expert;
 import subd.repository.ExpertRepository;
 
+import java.util.List;
+
 public class ExpertService {
     private ExpertRepository expertRepository;
 
@@ -29,4 +31,9 @@ public class ExpertService {
         expert.Constructor(id, lastName);
         expertRepository.save(expert);
     }
+
+    public List<Expert> getAllByNameEquals(String lastName) {
+        return expertRepository.getAllByNameEquals(lastName);
+    }
+
 }

@@ -7,6 +7,8 @@ import subd.model.Expert;
 import subd.model.Program;
 import subd.repository.EventProgramRepository;
 
+import java.util.List;
+
 public class EventProgramService {
     private EventProgramRepository eventProgramRepository;
 
@@ -26,9 +28,14 @@ public class EventProgramService {
         eventProgramRepository.deleteById(1);
     }
 
-    public void updateClient(Integer id, String name) {
+    public void updateEventPrograms(Integer id, String name) {
         EventProgram eventProgram = new EventProgram();
         eventProgram.Constructor(id, name);
         eventProgramRepository.save(eventProgram);
     }
+
+    public List<EventProgram> getAllByNameEquals(String name) {
+        return eventProgramRepository.getAllByNameEquals(name);
+    }
+
 }

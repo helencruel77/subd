@@ -9,6 +9,7 @@ import subd.repository.SessionRepository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class SessionService {
     private SessionRepository sessionRepository;
@@ -41,4 +42,9 @@ public class SessionService {
         session.Constructor(id,name, place, dateFrom, dateTo);
         sessionRepository.save(session);
     }
+
+    public List<Session> getAllByNameEquals(String name) {
+        return sessionRepository.getAllByNameEquals(name);
+    }
+
 }

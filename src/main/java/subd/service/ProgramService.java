@@ -2,8 +2,11 @@ package subd.service;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import subd.model.Participant;
 import subd.model.Program;
 import subd.repository.ProgramRepository;
+
+import java.util.List;
 
 public class ProgramService {
     private ProgramRepository programRepository;
@@ -27,5 +30,9 @@ public class ProgramService {
         Program program = new Program();
         program.Constructor(id, name, time);
         programRepository.save(program);
+    }
+
+    public List<Program> getAllByNameEquals(String name) {
+        return programRepository.getAllByNameEquals(name);
     }
 }

@@ -3,8 +3,11 @@ package subd.service;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import subd.model.Program;
+import subd.model.Session;
 import subd.model.TypeOfLesson;
 import subd.repository.TypeOfLessonRepository;
+
+import java.util.List;
 
 public class TypeOfLessonService {
     private TypeOfLessonRepository typeOfLessonRepository;
@@ -29,5 +32,9 @@ public class TypeOfLessonService {
         TypeOfLesson typeOfLesson = new TypeOfLesson();
         typeOfLesson.Constructor(id, name);
         typeOfLessonRepository.save(typeOfLesson);
+    }
+
+    public List<TypeOfLesson> getAllByNameEquals(String type) {
+        return typeOfLessonRepository.getAllByNameEquals(type);
     }
 }
