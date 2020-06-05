@@ -12,7 +12,7 @@ public class TypeOfLesson {
     @OneToMany
     private List<EventProgram> eventPrograms;
 
-    public void Constructor(Integer id, String name, String place, Timestamp dataFrom, Timestamp dataTo){
+    public void Constructor(Integer id, String name){
         this.name = name;
     }
 

@@ -8,8 +8,8 @@ public class Expert {
     private String lastName;
     @ManyToOne
     private EventProgram event_program;
-    public void Constructor(Integer id, String fio){
-        this.lastName = fio;
+    public void Constructor(Integer id, String lastName){
+        this.lastName = lastName;
     }
 
     @Override

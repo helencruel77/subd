@@ -1,15 +1,11 @@
 package subd;
 
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import subd.model.*;
 import subd.repository.*;
-import subd.service.CRUD;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
